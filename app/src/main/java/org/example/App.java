@@ -10,5 +10,6 @@ public class App {
         Database database = new Database(databaseLocation);
         database.init();
         database.test();
+        database.checkUser("admin", "admin");
     }
 }
