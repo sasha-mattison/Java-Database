@@ -4,11 +4,11 @@
 package org.example;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
+    private static String databaseLocation = "src/main/resources/";
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        Database database = new Database(databaseLocation);
+        database.init();
+        database.test();
     }
 }
