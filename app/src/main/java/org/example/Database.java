@@ -60,6 +60,22 @@ public class Database {
         System.out.println("User is logged in");
     }
 
+    void checkUser(UserPacket user) {
+
+        String username = user.getUsername();
+        String password = user.getPassword();
+
+         for (int i = 0; i < Math.min(userList.length, passwordList.length); i++) {
+            userMap.put(userList[i].trim(), passwordList[i].trim());
+        }
+
+        String passwordToCheckAgainst = userMap.get(username);
+        if (!password.equals(passwordToCheckAgainst))
+            return;
+
+        System.out.println("User is logged in");
+    }
+
     private void setupUserMap() {
         try {
             int userNum = Math.min(users.read().split(",").length, passwords.read().split(",").length);
@@ -68,6 +84,18 @@ public class Database {
             for (int i = 0; i<userNum; i++) {
                 userMap.put(userList[i], passwordList[i]);
             }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    void newUser(UserPacket user) {
+        String username = user.getUsername();
+        String password = user.getPassword();
+        userMap.put(username, password);
+        try {
+            users.formatWrite(username);
+            passwords.formatWrite(password);
         } catch (IOException e) {
             e.printStackTrace();
         }

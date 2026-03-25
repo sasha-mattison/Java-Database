@@ -5,6 +5,7 @@ package org.example;
 
 public class App {
 
+    private static boolean execute = true;
     private static String databaseLocation = "src/main/resources/";
     public static void main(String[] args) {
         Database database = new Database(databaseLocation);

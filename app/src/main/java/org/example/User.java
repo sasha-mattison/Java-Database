@@ -4,7 +4,7 @@ public class User {
     
     private String username;
     private String password;
-
+    private String encryptionKey;
 
     public User(String username, String password) {
         this.username = username;
@@ -12,11 +12,11 @@ public class User {
     }
 
     String getUsername() {
-        return username;
+        return this.username;
     }
 
     String getPassword() {
-        return password;
+        return this.password;
     }
 
     
