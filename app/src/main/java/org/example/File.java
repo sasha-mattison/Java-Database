@@ -75,6 +75,15 @@ public class File {
         Files.delete(this.path);
     }
 
+    void formatWrite(String stringToWrite) throws IOException{
+        if (!checkForFile())
+            create();
+
+        String fileContents = Files.readString(this.path, charset);
+        fileContents = fileContents.concat("," + stringToWrite);
+        Files.write(this.path, fileContents.getBytes(charset));
+    }
+
 
     
 }
