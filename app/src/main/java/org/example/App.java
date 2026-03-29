@@ -10,8 +10,9 @@ public class App {
     public static void main(String[] args) {
         Database database = new Database(databaseLocation);
         database.init();
-        database.test();
-        // database.checkUser("admin", "admin");
-        database.newUser("testUser", "abc123");
+        //database.test();
+        //database.checkUser("admin", "admin");
+        //database.newUser("testUser", "abc123");
+
     }
 }

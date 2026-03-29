@@ -60,7 +60,7 @@ public class Database {
         System.out.println("User is logged in");
     }
 
-    void checkUser(UserPacket user) {
+    void checkUser(User user) {
 
         String username = user.getUsername();
         String password = user.getPassword();
@@ -89,7 +89,7 @@ public class Database {
         }
     }
 
-    void newUser(UserPacket user) {
+    void newUser(User user) {
         String username = user.getUsername();
         String password = user.getPassword();
         userMap.put(username, password);
